@@ -1,0 +1,47 @@
+.panel {
+    background-size: cover; /* O cover */
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+    flex: 1; /* Asegura que los paneles tengan más espacio */
+    margin: 10px;
+    position: relative;
+    min-height: 200px; /* Altura mínima para asegurarte de que sean visibles */
+    transition: flex 0.7s ease-in;
+}
+
+.panel h3 {
+    font-size: 24px;
+    position: absolute;
+    left: 20px;
+    bottom: 20px; /* Ajusta la posición del texto para que no esté fuera de vista */
+    margin: 0;
+    opacity: 0;
+    color: white; /* Asegura que el texto sea visible sobre el fondo */
+}
+
+.panel.activo {
+    flex: 5;
+}
+
+.panel.activo h3 {
+    opacity: 1;
+}
+
+.contenedor {
+    height: 100vh; /* O un valor mínimo para asegurarte de que se vean */
+    width: 90vw;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+@media( max-width: 480px){
+    .contenedor{
+        display: flex;
+        
+        flex-direction: column;
+    }
+}

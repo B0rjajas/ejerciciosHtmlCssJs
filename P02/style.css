@@ -1,0 +1,146 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #333;
+    color: #222;
+    overflow-x: hidden;
+    margin: 0;
+}
+
+.contenedor {
+    background-color: #fafafa;
+    transform-origin: top left;
+    transition: transform 0.5s linear;
+    width: 100vw;
+    min-height: 100vh;
+    padding: 80px;
+}
+
+/* Mueve y rota todo el contenedor cuando se activa la clase show-nav */
+.contenedor.show-nav{
+    transform: rotate(-20deg);
+}
+
+/* El círculo está posicionado de manera fija, fuera de la pantalla inicialmente */
+.circulo-contenedor{
+    position: fixed;
+    top: -100px; /* Coordena el círculo con respecto a la esquina superior izquierda */
+    left: -100px;
+}
+
+/* Rota el círculo cuando se activa la clase show-nav */
+.contenedor.show-nav .circulo{
+    transform: rotate(-70deg);
+}
+
+.circulo {
+    background-color: #ff7979;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    position: relative; /* Permite a los botones dentro del círculo usar position: absolute */
+    transition: transform 0.5s linear;
+}
+
+/* Los botones se posicionan dentro del círculo usando coordenadas absolutas */
+.circulo button{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100px;
+    background: transparent;
+    border: 0;
+    font-size: 26px;
+    color: #fff;
+}
+
+/* Evita que el borde por defecto del botón (outline) aparezca cuando recibe foco */
+.circulo button:focus {
+    outline: none;
+}
+
+.circulo button#abrir {
+    left: 60%; /* Posiciona el botón #abrir más a la derecha dentro del círculo */
+}
+
+.circulo button#cerrar {
+    top: 60%; /* Mueve el botón #cerrar más hacia abajo en el círculo */
+    transform: rotate(90deg); /* Rota el ícono en 90 grados */
+    transform-origin: top left; /* Define el punto de rotación */
+}
+
+.contenido img{
+    max-width: 100%;
+    margin: 10px auto;
+    border-radius: 20px;
+}
+
+.contenedor h1{
+    color: #555;
+    font-style: italic;
+}
+
+/* Añade estilo en cursiva al texto en pequeño (small) */
+.contenedor small{
+    color: #555;
+    font-style: italic;
+}
+
+.contenedor p {
+    color: #333;
+    line-height: 1.5; /* Controla la altura de línea del texto */
+}
+
+/* Transforma los elementos de la lista de navegación cuando se activa show-nav */
+.contenedor.show-nav + nav li {
+    transform: translateX(0);
+    transition-delay: 0.3s;
+}
+
+/* Estilos del menú de navegación */
+nav {
+    position: fixed;
+    bottom: 40px;
+    left: 0;
+    z-index: 100; /* Asegura que el menú esté por encima de otros elementos */
+}
+
+nav a {
+    color: #fafafa;
+    transition: color 0.5s ease-in-out;
+}
+
+nav a:hover {
+    color: #FF7979;
+    font-weight: bold; /* Resalta el enlace cuando se pasa el cursor sobre él */
+}
+
+nav ul {
+    list-style-type: none;
+    padding-left: 30px;
+}
+
+nav ul li {
+    text-transform: uppercase; /* Convierte el texto del menú a mayúsculas */
+    color: #fff;
+    margin: 40px 0;
+    transform:  translateX(-100%); /* Inicialmente mueve los elementos fuera de la vista */
+    transition: transform 0.4s ease-in;
+}
+
+nav ul li i {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+/* Mueve los enlaces dentro del nav en el eje X más hacia la izquierda */
+nav ul li + li {
+    transform: translateX(-150%);
+}
+
+nav ul li + li + li {
+    transform: translateX(-200%);
+}

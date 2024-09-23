@@ -1,0 +1,29 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.contenedor {
+    
+    width: 300px;
+    height: 300px;
+    background-color: lightgrey;
+    
+}
+
+.relativo {
+    position: relative; /* Actúa como contenedor para el absoluto */
+    width: 20%;
+    height: 20%;
+    background-color: lightblue;
+    border-radius: 30px;
+}
+
+.absoluto {
+    position: absolute; /* Se posiciona en relación al contenedor relativo */
+    top: 0px; /* 20px desde la parte superior del contenedor relativo */
+    right: 0px; /* 30px desde la izquierda del contenedor relativo */
+    background-color: coral;
+}
